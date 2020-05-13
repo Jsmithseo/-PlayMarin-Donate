@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from \"@emotion/styled\";\nconst Image = styled.img`\n  display: block;\n  margin: 0 auto;\n`;\nexport default Image;","map":null,"metadata":{},"sourceType":"module"}

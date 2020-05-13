@@ -1,7 +1,7 @@
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
-/******/ 	var installedModules = {};
+/******/ 	var installedModules = require('../../../../ssr-module-cache.js');
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -88,23 +88,63 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "KqAr");
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "KqAr":
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("dXQN");
+
+
+/***/ }),
+
+/***/ "dXQN":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var stripe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("usZV");
+/* harmony import */ var stripe__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(stripe__WEBPACK_IMPORTED_MODULE_0__);
 
-    
+const stripe = new stripe__WEBPACK_IMPORTED_MODULE_0___default.a(process.env.SECRET_KEY);
+/* harmony default export */ __webpack_exports__["default"] = (async (req, res) => {
+  if (req.method === "POST") {
+    try {
+      const {
+        amount
+      } = req.body; // Psst. For production-ready applications we recommend not using the
+      // amount directly from the client without verifying it first. This is to
+      // prevent bad actors from changing the total amount on the client before
+      // it gets sent to the server. A good approach is to send the quantity of
+      // a uniquely identifiable product and calculate the total price server-side.
+      // Then, you would only fulfill orders using the quantity you charged for.
 
-    /* harmony default export */ __webpack_exports__["default"] = (function (ctx) {
-      return Promise.all([])
-    });
-  
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount,
+        currency: "usd"
+      });
+      res.status(200).send(paymentIntent.client_secret);
+    } catch (err) {
+      res.status(500).json({
+        statusCode: 500,
+        message: err.message
+      });
+    }
+  } else {
+    res.setHeader("Allow", "POST");
+    res.status(405).end("Method Not Allowed");
+  }
+});
+
+/***/ }),
+
+/***/ "usZV":
+/***/ (function(module, exports) {
+
+module.exports = require("stripe");
 
 /***/ })
 

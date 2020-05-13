@@ -1,36 +1,43 @@
 {
-  "devFiles": [
-    "static/runtime/react-refresh.js",
-    "static/development/dll/dll_d6a88dbe3071bd165157.js",
-    "static/development/dll/dll_d6a88dbe3071bd165157.js.map"
-  ],
+  "devFiles": [],
   "lowPriorityFiles": [
-    "static/development/_buildManifest.js",
-    "static/development/_ssgManifest.js"
+    "static/KqLifR3hxOwWYRHYJTDnZ/_buildManifest.js",
+    "static/KqLifR3hxOwWYRHYJTDnZ/_ssgManifest.js"
   ],
   "pages": {
     "/": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-c212667a5f965e81e004.js",
+      "static/chunks/framework.ed2c062919678f3efbb9.js",
+      "static/chunks/a6091d273d3bab349a21a60e6239bef97545377d.bf21414584b9690f2b6d.js",
+      "static/chunks/b50cac97bdb5723630c251111c47db77dbf255fb.7e34fec15988437b0e8a.js",
+      "static/runtime/main-16df203cc1162ccd13ba.js"
     ],
     "/_app": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-c212667a5f965e81e004.js",
+      "static/chunks/framework.ed2c062919678f3efbb9.js",
+      "static/chunks/a6091d273d3bab349a21a60e6239bef97545377d.bf21414584b9690f2b6d.js",
+      "static/runtime/main-16df203cc1162ccd13ba.js"
     ],
     "/_error": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-c212667a5f965e81e004.js",
+      "static/chunks/framework.ed2c062919678f3efbb9.js",
+      "static/runtime/main-16df203cc1162ccd13ba.js"
     ],
     "/_polyfills": [
-      "static/runtime/polyfills.js"
+      "static/runtime/polyfills-ad53a9ae2374d10d3fb9.js"
     ],
     "/index": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-c212667a5f965e81e004.js",
+      "static/chunks/framework.ed2c062919678f3efbb9.js",
+      "static/chunks/a6091d273d3bab349a21a60e6239bef97545377d.bf21414584b9690f2b6d.js",
+      "static/chunks/b50cac97bdb5723630c251111c47db77dbf255fb.7e34fec15988437b0e8a.js",
+      "static/runtime/main-16df203cc1162ccd13ba.js"
     ],
-    "/next/dist/pages/_error": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+    "/success": [
+      "static/runtime/webpack-c212667a5f965e81e004.js",
+      "static/chunks/framework.ed2c062919678f3efbb9.js",
+      "static/chunks/b50cac97bdb5723630c251111c47db77dbf255fb.7e34fec15988437b0e8a.js",
+      "static/runtime/main-16df203cc1162ccd13ba.js"
     ]
   }
 }
