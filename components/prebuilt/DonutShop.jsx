@@ -3,13 +3,14 @@ import styled from "@emotion/styled";
 import Image from "./Image";
 import DonutQuantity from "./DonutQuantity";
 
+
 const Shop = styled.div`
   padding: 10px 20px 40px 20px;
+  background-color: #efefef;
 `;
 
 const ShopName = styled.h1`
   font-size: 18px;
-  color: #fff;
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
@@ -26,8 +27,10 @@ const Controls = styled.div`
 
 const DonutShop = ({ onAddDonut, onRemoveDonut, numDonuts }) => {
   return (
+    <>
+    <h2>Play Marin Secure Payment Portal</h2>
     <Shop>
-      <ShopName>Play Marin</ShopName>
+      <ShopName></ShopName>
       <Image/>
       <Controls>
         <DonutQuantity
@@ -37,6 +40,7 @@ const DonutShop = ({ onAddDonut, onRemoveDonut, numDonuts }) => {
         />
       </Controls>
     </Shop>
+    </>
   );
 };
 

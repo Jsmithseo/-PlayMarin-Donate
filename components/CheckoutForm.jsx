@@ -99,19 +99,18 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
   const iframeStyles = {
     base: {
-      color: "#fff",
       fontSize: "16px",
-      iconColor: "#fff",
+      iconColor: "#efefe",
       "::placeholder": {
-        color: "#87bbfd"
+        color: "#000"
       }
     },
     invalid: {
-      iconColor: "#FFC7EE",
-      color: "#FFC7EE"
+      iconColor: "red",
+      color: "red"
     },
     complete: {
-      iconColor: "#cbf4c9"
+      iconColor: "green"
     }
   };
 
