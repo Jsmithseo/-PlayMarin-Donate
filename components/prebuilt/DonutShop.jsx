@@ -28,7 +28,7 @@ const DonutShop = ({ onAddDonut, onRemoveDonut, numDonuts }) => {
   return (
     <Shop>
       <ShopName>Play Marin</ShopName>
-      <Image src="./playMarinLogo.png" width="100px"></Image>
+      <Image/>
       <Controls>
         <DonutQuantity
           onAdd={onAddDonut}
