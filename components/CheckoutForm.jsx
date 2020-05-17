@@ -54,7 +54,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
     try {
       const { data: clientSecret } = await axios.post(
-        '/api/payment_methods', {
+        'https://playmarin.org/charitable-listener/stripe', {
         amount: price * 100
       });
 
