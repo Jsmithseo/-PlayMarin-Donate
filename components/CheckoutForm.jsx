@@ -19,17 +19,12 @@ const CardElementContainer = styled.div`
   }
 `;
 
-
-const stripe = 'sk_test_1nbmLkBnfJg4TPyPSNqpEF1x00kwXWftcw'
-
-
-
- const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
+const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
 
-  // const stripe = useStripe();
-  // const elements = useElements();
+  const stripe = useStripe();
+  const elements = useElements();
 
   // TIP
   // use the cardElements onChange prop to add a handler
@@ -59,10 +54,9 @@ const stripe = 'sk_test_1nbmLkBnfJg4TPyPSNqpEF1x00kwXWftcw'
 
     try {
       const { data: clientSecret } = await axios.post(
-        '/api/payment_intents', {
+        'api/payment_intents', {
         amount: price * 100
       });
-
 
       console.log(clientSecret)
 
@@ -71,17 +65,21 @@ const stripe = 'sk_test_1nbmLkBnfJg4TPyPSNqpEF1x00kwXWftcw'
         card: cardElement,
         billing_details: billingDetails
       });
-
+      
       if (paymentMethodReq.error) {
         setCheckoutError(paymentMethodReq.error.message);
         setProcessingTo(false);
         return;
       }
-      const confirmCardPayment  = await stripe.confirmCardPayment(clientSecret, {
+      const { error } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: paymentMethodReq.paymentMethod.id
       });
 
-      console.log(confirmCardPayment)
+      if (error) {
+        setCheckoutError(error.message);
+        setProcessingTo(false);
+        return;
+      }
 
       onSuccessfulCheckout();
     } catch (err) {
