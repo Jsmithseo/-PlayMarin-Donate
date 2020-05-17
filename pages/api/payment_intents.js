@@ -15,6 +15,7 @@ export default async (req, res) => {
 
       const paymentIntent = await stripe.paymentIntents.create({
         amount,
+        baseURL: 'https://xenodochial-newton-8f0cd9.netlify.app/' ,
         currency: "usd"
       });
 
