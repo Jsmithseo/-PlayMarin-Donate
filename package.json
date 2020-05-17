@@ -17,6 +17,7 @@
     "react": "^16.7.0",
     "react-confetti": "^5.0.1",
     "react-dom": "^16.7.0",
+    "react-responsive-embed": "^2.1.0",
     "stripe": "^8.15.0"
   },
   "license": "MIT",
