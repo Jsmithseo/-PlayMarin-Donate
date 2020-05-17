@@ -20,7 +20,7 @@ const CardElementContainer = styled.div`
 `;
 
 
-const stripe = require('stripe')('sk_test_1nbmLkBnfJg4TPyPSNqpEF1x00kwXWftcw');
+const stripe = 'sk_test_1nbmLkBnfJg4TPyPSNqpEF1x00kwXWftcw'
 
 
 
@@ -29,7 +29,7 @@ const stripe = require('stripe')('sk_test_1nbmLkBnfJg4TPyPSNqpEF1x00kwXWftcw');
   const [checkoutError, setCheckoutError] = useState();
 
   // const stripe = useStripe();
-  const elements = useElements();
+  // const elements = useElements();
 
   // TIP
   // use the cardElements onChange prop to add a handler
