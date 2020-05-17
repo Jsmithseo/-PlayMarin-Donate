@@ -75,7 +75,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
         payment_method: paymentMethodReq.paymentMethod.id
       });
 
-      console.log(confirmCardPayment
+      console.log(confirmCardPayment)
 
       onSuccessfulCheckout();
     } catch (err) {
