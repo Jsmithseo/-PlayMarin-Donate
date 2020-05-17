@@ -50,26 +50,28 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
     setProcessingTo(true);
 
-    const cardElement = elements.getElement("card");
+    const cardElement = elements.getElement(CardElement);
 
     try {
       const { data: clientSecret } = await axios.post(
-        'https://playmarin.org/api/payment_intents', {
+        'api/payment_intents', {
         amount: price * 100
       });
+
+      console.log(clientSecret)
 
       const paymentMethodReq = await stripe.createPaymentMethod({
         type: "card",
         card: cardElement,
         billing_details: billingDetails
       });
-
+      console.log(paymentMethodReq)
+      
       if (paymentMethodReq.error) {
         setCheckoutError(paymentMethodReq.error.message);
         setProcessingTo(false);
         return;
       }
-
       const { error } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: paymentMethodReq.paymentMethod.id
       });
