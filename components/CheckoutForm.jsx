@@ -54,7 +54,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
     try {
       const { data: clientSecret } = await axios.post(
-        "/api/payment_intents", {
+        '/v1/payment_methods', {
         amount: price * 100
       });
 
