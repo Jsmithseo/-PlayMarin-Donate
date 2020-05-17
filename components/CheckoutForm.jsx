@@ -53,9 +53,15 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     const cardElement = elements.getElement("card");
 
     try {
-      const { data: clientSecret } = await Axios.post("/api/payment_intents", {
-        amount: price * 100
-      });
+
+        const { data: clientSecret } = await stripe.paymentIntents.create({
+  amount: price * 100,
+  currency: "AUD",
+  description: "Delicious empanadas",
+  payment_method: id,
+  confirm: true,
+});
+
 
       const paymentMethodReq = await stripe.createPaymentMethod({
         type: "card",
