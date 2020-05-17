@@ -54,7 +54,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
     try {
       const { data: clientSecret } = await axios.post(
-        '/api/payment_intents', {
+        'api/payment_intents', {
         amount: price * 100
       });
 
@@ -71,20 +71,11 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
         setProcessingTo(false);
         return;
       }
-
-
-      const confirmCardPayment = await stripe.confirmCardPayment(clientSecret, {
+      const confirmCardPayment  = await stripe.confirmCardPayment(clientSecret, {
         payment_method: paymentMethodReq.paymentMethod.id
       });
 
-
-      console.log(confirmCardPayment)
-
-      if (error) {
-        setCheckoutError(error.message);
-        setProcessingTo(false);
-        return;
-      }
+      console.log(confirmCardPayment
 
       onSuccessfulCheckout();
     } catch (err) {
