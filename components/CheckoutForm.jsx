@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import styled from "@emotion/styled";
-import Axios from "axios";
+import axios from "axios";
 
 import Row from "./prebuilt/Row";
 import BillingDetailsFields from "./prebuilt/BillingDetailsFields";
@@ -53,15 +53,10 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     const cardElement = elements.getElement("card");
 
     try {
-
-        const { data: clientSecret } = await stripe.paymentIntents.create({
-  amount: price * 100,
-  currency: "AUD",
-  description: "Delicious empanadas",
-  payment_method: id,
-  confirm: true,
-});
-
+      const { data: clientSecret } = await axios.post(
+        "/api/payment_intent", {
+        amount: price * 100
+      });
 
       const paymentMethodReq = await stripe.createPaymentMethod({
         type: "card",
