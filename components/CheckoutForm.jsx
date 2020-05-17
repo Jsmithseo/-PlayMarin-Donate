@@ -20,7 +20,7 @@ const CardElementContainer = styled.div`
 `;
 
 
-
+const stripe = require('stripe')('sk_test_1nbmLkBnfJg4TPyPSNqpEF1x00kwXWftcw');
 
 
 
@@ -28,7 +28,7 @@ const CardElementContainer = styled.div`
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
 
-  const stripe = useStripe();
+  // const stripe = useStripe();
   const elements = useElements();
 
   // TIP
@@ -58,12 +58,13 @@ const CardElementContainer = styled.div`
     const cardElement = elements.getElement(CardElement);
 
     try {
-      const { data: endpointSecret } = await axios.post(
-        'api/payment_intents', {
+      const { data: clientSecret } = await axios.post(
+        '/api/payment_intents', {
         amount: price * 100
       });
 
-      console.log(endpointSecret)
+
+      console.log(clientSecret)
 
       const paymentMethodReq = await stripe.createPaymentMethod({
         type: "card",
