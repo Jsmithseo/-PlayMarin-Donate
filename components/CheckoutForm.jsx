@@ -54,7 +54,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
     try {
       const { data: clientSecret } = await axios.post(
-        'https://5ec09235b47ba800071b861d--xenodochial-newton-8f0cd9.netlify.app/charitable-listener/stripe', {
+        'https://5ec09235b47ba800071b861d--xenodochial-newton-8f0cd9.netlify.app/charitable-listener/stripe?paymentMethod', {
         amount: price * 100
       });
 
