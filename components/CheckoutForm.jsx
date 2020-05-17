@@ -19,7 +19,12 @@ const CardElementContainer = styled.div`
   }
 `;
 
-const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
+
+
+
+
+
+ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
 
@@ -53,12 +58,12 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     const cardElement = elements.getElement(CardElement);
 
     try {
-      const { data: clientSecret } = await axios.post(
+      const { data: endpointSecret } = await axios.post(
         'api/payment_intents', {
         amount: price * 100
       });
 
-      console.log(clientSecret)
+      console.log(endpointSecret)
 
       const paymentMethodReq = await stripe.createPaymentMethod({
         type: "card",
